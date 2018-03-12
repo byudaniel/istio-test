@@ -1,0 +1,20 @@
+{
+  "name": "sneeze1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "get-ip-address": "^1.0.0",
+    "seneca": "^3.4.3",
+    "seneca-balance-client": "^0.6.1",
+    "seneca-mesh": "^0.11.0",
+    "sneeze": "^0.8.0"
+  }
+}

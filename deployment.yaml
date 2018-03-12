@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1beta2
+metadata:
+  name: echo-send
+  labels:
+    app: echo-send
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echo-send
+  template:
+    metadata:
+      labels:
+        app: echo-send
+    spec:
+      containers:
+      - name: echo-send
+        image: doneill/sender:v5
+        imagePullPolicy: Never

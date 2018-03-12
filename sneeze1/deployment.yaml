@@ -1,0 +1,23 @@
+kind: Deployment
+apiVersion: apps/v1beta2
+metadata:
+  name: sneeze-base
+  labels:
+    app: sneeze-base
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sneeze-base
+  template:
+    metadata:
+      labels:
+        app: sneeze-base
+    spec:
+      containers:
+      - name: sneeze-base
+        image: doneill/sneezebase:v3
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 39999
+          protocol: UDP

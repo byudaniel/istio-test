@@ -1,0 +1,35 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sneeze-client-service
+spec:
+  selector:
+    app: sneeze-client
+  ports:
+  - protocol: UDP
+    port: 39999
+    targetPort: 39999
+---
+kind: Deployment
+apiVersion: apps/v1beta2
+metadata:
+  name: sneeze-client
+  labels:
+    app: sneeze-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sneeze-client
+  template:
+    metadata:
+      labels:
+        app: sneeze-client
+    spec:
+      containers:
+      - name: sneeze-client
+        image: doneill/sneezeclient:v13
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 39999
+          protocol: UDP
